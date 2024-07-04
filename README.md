@@ -1,2 +1,7 @@
-# hello-world
-此存储库用于练习 GitHub 流
+#!/bin/bash
+for i in {1..1000}; do
+if [ $(( i % 9 )) -eq 0 ]; then
+   echo "$i"
+fi
+done
+   
