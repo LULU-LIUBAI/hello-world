@@ -1,0 +1,47 @@
+#!/bin/bash
+#1
+test -f /root/test.sh
+if [ $? -eq  0  ];then
+    echo "存在"
+    sh  /root/test.sh
+if [ $? -eq  0  ];then
+    echo "可执行"
+else
+    echo "不存在"
+fi
+fi
+#2
+a=/etc/rc.d/rc.local
+b=/etc/rc.d/init.d/functions
+c=/etc/inittab
+for i in $a  $b $c
+do
+  sed -nr '/^$/p' $i | wc -l
+  sed -nr '/^#/p' $i | wc -l
+    echo "$i #开头行数； "
+    echo "$i 空格开头的行数；"
+
+done
+
+
+#3
+read -p "请输入一个数：" shu
+if [[ $shu =~ ^[0-9]+$ ]];then
+
+
+if [ $((shu % 2)) -eq 0 ];then
+    echo "$shu这个数是偶数"
+
+    elif [ $((shu % 2)) != 0 ];then
+
+     echo "$shu这个数是奇数"
+
+
+exit
+    echo "奇数" 
+fi
+else
+echo "请输入数字：" 
+fi
+
+                                
